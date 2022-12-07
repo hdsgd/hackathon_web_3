@@ -73,18 +73,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"Contracts/AuctionSPU.sol": {
-			"keccak256": "0xd86b46f251730fa40baf3af803c8f194c987ecc929659f87cba69d68fc073add",
+			"keccak256": "0xc74e8ae9889fc8c81ee5ad70396b79aeef2abb2344a68eca3a55c2274341b403",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://761b01ea97e8fab1a55546536e0f78c800bc0c7caacc0b5953ea57759ebf0d9a",
-				"dweb:/ipfs/QmPXetyr3GVfGwbPCeeVpoZZPoLbQ9aTJSUDDdhyoKDauK"
+				"bzz-raw://abc916c2fe0a232b69c833e1615981dbcb240e126af9d6388a1e75b118ec2c36",
+				"dweb:/ipfs/QmVbmLboggUuHsRoLz8RdTB87Npf7rNkFUVg1QGsDBaNEv"
 			]
 		}
 	},

@@ -10,10 +10,10 @@ pragma solidity ^0.8.17;
 
 // TODO
 /*
- 1 - Criar NFT teste (+30min)
+ 1 - Criar NFT teste (+30min) ok
  2 - Inserir documentação (IPFS) Leilão (+45min)
  3 - Criar mintador de leilão (+2hr)
- 4 - Criar mintador de NFT (+1hr)
+ 4 - Criar mintador de NFT (+1hr) ok
  5 - Criar contrato de documentação (+1Dia)
  6 - Criar mintador de documentação (+2hr)
 */
@@ -21,6 +21,8 @@ pragma solidity ^0.8.17;
 /*
     ERC-721 interface to acess usable functions as safeTransferFrom
 */
+
+
 
 interface IERC721 {
     function safeTransferFrom(address from, address to, uint tokenId) external;
@@ -44,6 +46,10 @@ contract AuctionSPU {
     event EndAuction(address winner, uint amount);
     event PauseAuction(address pauser);
     event UnpauseAuction(address pauser);
+    event Cashback(address indexed bidder, uint amount);
+    event SetWhitelistByAddress(address indexed account, bool enable);
+    event FeePayment(address indexed feeAddress ,uint totalFee);
+    event BidPayment(address indexed seller , uint highestBid);
 
     /*
         ERC-721 Variables
@@ -73,19 +79,15 @@ contract AuctionSPU {
     uint public highestBid;
 
     struct Bidders {
-        uint totalValue;
-        uint realValue;
+        uint totalValue;        
         uint portion;
         uint clientScore;
-    }
-
-    struct FeeReceivers {
-        address recipient;
-        uint fee;
-    }
+        uint downpay;
+    }    
 
     mapping(address => Bidders) public receivedBids;
-    mapping(address => FeeReceivers) public feeReceivers;
+
+    mapping(address => bool) private _whitelist;
 
     /*
         Constructor
@@ -127,13 +129,14 @@ contract AuctionSPU {
     modifier auctionStarted() {
         require(started, "Not Started Yet");
         _;
-    }
+    }    
+
 
     // Function to receive Ether. msg.data must be empty
-    receive() external payable {}
+    receive() external payable onlyOwner{}
 
     // Fallback function is called when msg.data is not empty
-    fallback() external payable {}
+    fallback() external payable onlyOwner{}
 
     function getBalance() public view returns (uint) {
         return address(this).balance;
@@ -192,91 +195,122 @@ contract AuctionSPU {
         Method to receive bids
     */
 
+
+
+    // bid -> _realvalue usar esse valor
+    // descontar taxa é do msg.value
+    // cashback  
+
+    // Adicionar whitelist pra bid
     function newBid(
-        uint _totalValue,
-        uint _realValue,
+        uint _totalValue,        
         uint _portion,
-        uint _clientScore
+        uint _clientScore    
     ) external payable auctionStarted auctionPaused {
-        require(block.timestamp < endAt, "Already ended");
-        require(msg.value > highestBid, "Lower Bid");
+        require(block.timestamp < endAt, "Already ended");        
         require(msg.sender != seller, "Seller not allowed");
-        
-        uint fee = (_totalValue / FEE_BASE) * transactionFee;
-        totalFee += fee;   
+        require(_isWhitelist(msg.sender), "Permission denied");  
 
-        cashback(highestBidder, receivedBids[highestBidder].totalValue); 
+        uint fee = ( msg.value / FEE_BASE) * transactionFee;
+        totalFee += fee;  
 
-        if (receivedBids[msg.sender].totalValue != 0) {  
-           
-            receivedBids[msg.sender].totalValue = _totalValue - fee;
-            receivedBids[msg.sender].realValue = _realValue;
+        require(msg.value - fee > highestBid, "Lower Bid");
+
+        cashback(highestBidder, receivedBids[highestBidder].downpay); 
+
+
+        if (receivedBids[msg.sender].totalValue != 0) {             
+            
+            receivedBids[msg.sender].totalValue = _totalValue;
+            receivedBids[msg.sender].downpay = msg.value - fee;
             receivedBids[msg.sender].portion = _portion;
             receivedBids[msg.sender].clientScore = _clientScore;
 
         } else {           
 
             Bidders memory b;
-            b.totalValue += _totalValue - fee;            
-            b.realValue += _realValue;
+            b.downpay = msg.value - fee;
+            b.totalValue = _totalValue;      
             b.portion = _portion;
             b.clientScore = _clientScore;
             receivedBids[msg.sender] = b;
         }
 
         highestBidder = msg.sender;
-        highestBid = msg.value;
+        highestBid = msg.value - fee;
         numberOfBids += 1;
 
-        emit Bid(msg.sender, msg.value);
+        emit Bid(msg.sender, msg.value - fee);
     }
 
     function withdraw() external {
         require(!(msg.sender == highestBidder), "Your Bid is the higher");
-        require(receivedBids[msg.sender].totalValue != 0, "No bids founded");
+        require(receivedBids[msg.sender].downpay != 0, "No bids founded");
 
-        cashback(msg.sender, receivedBids[msg.sender].totalValue);
+        cashback(msg.sender, receivedBids[msg.sender].downpay);
 
+        receivedBids[msg.sender].downpay = 0;
         receivedBids[msg.sender].totalValue = 0;
-        receivedBids[msg.sender].realValue = 0;
         receivedBids[msg.sender].portion = 0;
         receivedBids[msg.sender].clientScore = 0;
 
-        emit Withdraw(msg.sender, receivedBids[msg.sender].totalValue);
+        emit Withdraw(msg.sender, receivedBids[msg.sender].downpay);
     }
 
     function cashback(address _receiver, uint _amount) internal{
         (bool callSuccess, ) = payable(_receiver).call{value: _amount}("");
         require(callSuccess, "Return funds failed");
-    }
 
-    function addNewFeeReceiver(address _newRecipient, uint8 _fee) external onlyOwner{
-        require( (transactionFee + _fee) <= 100 , "100% of the fee already alocated");
-        FeeReceivers memory fR;
-        fR.recipient = _newRecipient;
-        fR.fee = _fee;
-        transactionFee += _fee;
-        feeReceivers[msg.sender] = fR;
-    }
+        receivedBids[msg.sender].downpay = 0;
+        receivedBids[msg.sender].totalValue = 0;
+        receivedBids[msg.sender].portion = 0;
+        receivedBids[msg.sender].clientScore = 0;
+
+        emit Cashback(_receiver, _amount);
+    }    
 
     function closeAuction () external onlyOwner{
+        require(block.timestamp >= endAt, "Not Ended");
         if (highestBidder != address(0)) {
             nft.safeTransferFrom(address(this), highestBidder, nftId);
             
             (bool callSuccessFee, ) = payable(feeAddress).call{value: totalFee}("");
             require(callSuccessFee, "Return fee funds failed");
             
+            emit FeePayment(feeAddress , totalFee);
+            
             (bool callSuccess, ) = payable(seller).call{value: highestBid}("");
             require(callSuccess, "Return funds failed");
+
+            emit BidPayment(seller , highestBid);
             
         } else {
             nft.safeTransferFrom(address(this), seller, nftId);
             
             (bool callSuccessFee, ) = payable(feeAddress).call{value: totalFee}("");
             require(callSuccessFee, "Return fee funds failed");
+
+            emit FeePayment(feeAddress , totalFee);
             
             (bool callSuccess, ) = payable(seller).call{value: highestBid}("");
             require(callSuccess, "Return funds failed");
+
+            emit BidPayment(seller , highestBid);
         }
     } 
+
+    function setWhitelist(address _account, bool enable) external  onlyOwner{
+        _whitelist[_account] = enable;
+        emit SetWhitelistByAddress(_account, enable);
+    }
+
+    
+    function _isWhitelist(address _account) private view returns (bool) {
+        return _whitelist[_account];
+    }
+
+    
+    function isWhitelist(address _account) public view returns (bool) {
+        return _isWhitelist(_account);
+    }
 }
