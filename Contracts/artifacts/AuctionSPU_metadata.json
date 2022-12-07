@@ -64,6 +64,44 @@
 				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "highestBid",
+						"type": "uint256"
+					}
+				],
+				"name": "BidPayment",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Cashback",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
 						"indexed": false,
 						"internalType": "address",
 						"name": "winner",
@@ -83,6 +121,25 @@
 				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "feeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalFee",
+						"type": "uint256"
+					}
+				],
+				"name": "FeePayment",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
 						"indexed": false,
 						"internalType": "address",
 						"name": "pauser",
@@ -90,6 +147,25 @@
 					}
 				],
 				"name": "PauseAuction",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "enable",
+						"type": "bool"
+					}
+				],
+				"name": "SetWhitelistByAddress",
 				"type": "event"
 			},
 			{
@@ -148,24 +224,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_newRecipient",
-						"type": "address"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_fee",
-						"type": "uint8"
-					}
-				],
-				"name": "addNewFeeReceiver",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "closeAuction",
 				"outputs": [],
@@ -219,30 +277,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "feeReceivers",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "recipient",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "fee",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "getBalance",
 				"outputs": [
@@ -284,13 +318,27 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "_totalValue",
-						"type": "uint256"
-					},
+						"internalType": "address",
+						"name": "_account",
+						"type": "address"
+					}
+				],
+				"name": "isWhitelist",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_realValue",
+						"name": "_totalValue",
 						"type": "uint256"
 					},
 					{
@@ -385,17 +433,17 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "realValue",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
 						"name": "portion",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
 						"name": "clientScore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "downpay",
 						"type": "uint256"
 					}
 				],
@@ -413,6 +461,24 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_account",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "enable",
+						"type": "bool"
+					}
+				],
+				"name": "setWhitelist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -488,18 +554,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"Contracts/AuctionSPU.sol": {
-			"keccak256": "0xd86b46f251730fa40baf3af803c8f194c987ecc929659f87cba69d68fc073add",
+			"keccak256": "0xc74e8ae9889fc8c81ee5ad70396b79aeef2abb2344a68eca3a55c2274341b403",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://761b01ea97e8fab1a55546536e0f78c800bc0c7caacc0b5953ea57759ebf0d9a",
-				"dweb:/ipfs/QmPXetyr3GVfGwbPCeeVpoZZPoLbQ9aTJSUDDdhyoKDauK"
+				"bzz-raw://abc916c2fe0a232b69c833e1615981dbcb240e126af9d6388a1e75b118ec2c36",
+				"dweb:/ipfs/QmVbmLboggUuHsRoLz8RdTB87Npf7rNkFUVg1QGsDBaNEv"
 			]
 		}
 	},
