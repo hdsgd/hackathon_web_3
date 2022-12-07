@@ -7,6 +7,7 @@ pragma solidity ^0.8.17;
     This auction is created to perform a NFT sell, correspondig to a government property. This code
     is a small part of an entire project. Any questions could be redirect to my email 
 */
+
 // TODO
 /*
  1 - Criar NFT teste (+30min)
@@ -55,6 +56,7 @@ contract AuctionSPU {
     */
 
     address payable public seller;
+    address payable public feeAddress;
     uint public endAt;
     bool public started;
     bool public ended;
@@ -94,16 +96,19 @@ contract AuctionSPU {
         seller -> Address of the seller, by default SPU
     */
     constructor(
-        //address _nft,
-        //uint _nftId,
+        address _nft,
+        address _feeAddres,
+        uint _nftId,
         uint _startingBid,
         uint _period,
         uint _transactionFee
+        
     ) {
-        //nft = IERC721(_nft);
-        //nftId = _nftId;
+        nft = IERC721(_nft);
+        nftId = _nftId;
 
         seller = payable(msg.sender);
+        feeAddress = payable(_feeAddres);
         highestBid = _startingBid;
         endAt = _period; //timestamp
         transactionFee = _transactionFee; // 10 -> 0.1%
@@ -141,7 +146,7 @@ contract AuctionSPU {
     function startAuction() external onlyOwner {
         require(!started, "Already Started");
 
-        //nft.transferFrom(msg.sender, address(this), nftId);
+        nft.transferFrom(msg.sender, address(this), nftId);
         started = true;
 
         emit StartAuction();
@@ -202,8 +207,7 @@ contract AuctionSPU {
 
         cashback(highestBidder, receivedBids[highestBidder].totalValue); 
 
-        if (receivedBids[msg.sender].totalValue != 0) {           
-                    
+        if (receivedBids[msg.sender].totalValue != 0) {  
            
             receivedBids[msg.sender].totalValue = _totalValue - fee;
             receivedBids[msg.sender].realValue = _realValue;
@@ -257,20 +261,20 @@ contract AuctionSPU {
 
     function closeAuction () external onlyOwner{
         if (highestBidder != address(0)) {
-            //nft.safeTransferFrom(address(this), highestBidder, nftId);
-            /*
-            (bool callSuccess, ) = payable(feeAddress).call{value: totalFee}("");
-            require(callSuccess, "Return funds failed");
-            */
+            nft.safeTransferFrom(address(this), highestBidder, nftId);
+            
+            (bool callSuccessFee, ) = payable(feeAddress).call{value: totalFee}("");
+            require(callSuccessFee, "Return fee funds failed");
+            
             (bool callSuccess, ) = payable(seller).call{value: highestBid}("");
             require(callSuccess, "Return funds failed");
             
         } else {
-            //nft.safeTransferFrom(address(this), seller, nftId);
-            /*
-            (bool callSuccess, ) = payable(feeAddress).call{value: totalFee}("");
-            require(callSuccess, "Return funds failed");
-            */
+            nft.safeTransferFrom(address(this), seller, nftId);
+            
+            (bool callSuccessFee, ) = payable(feeAddress).call{value: totalFee}("");
+            require(callSuccessFee, "Return fee funds failed");
+            
             (bool callSuccess, ) = payable(seller).call{value: highestBid}("");
             require(callSuccess, "Return funds failed");
         }
