@@ -63,6 +63,8 @@ contract AuctionSPU {
 
     address payable public seller;
     address payable public feeAddress;
+    address public docsRegister;
+    uint public docsProcess;
     uint public endAt;
     bool public started;
     bool public ended;
@@ -71,6 +73,7 @@ contract AuctionSPU {
     uint private transactionFee;
     uint public constant FEE_BASE = 10000;
     uint public totalFee;
+    
 
     /*
         Bids parameters
@@ -79,14 +82,14 @@ contract AuctionSPU {
     uint public highestBid;
 
     struct Bidders {
-        uint totalValue;        
+        uint totalValue; 
+        uint realValue;       
         uint portion;
-        uint clientScore;
-        uint downpay;
+        uint clientScore;  
+        uint downpay;      
     }    
 
     mapping(address => Bidders) public receivedBids;
-
     mapping(address => bool) private _whitelist;
 
     /*
@@ -99,11 +102,14 @@ contract AuctionSPU {
     */
     constructor(
         address _nft,
+        address _docsRegister,
+        uint _docsProcess,
         address _feeAddres,
         uint _nftId,
         uint _startingBid,
         uint _period,
         uint _transactionFee
+        
         
     ) {
         nft = IERC721(_nft);
@@ -113,7 +119,9 @@ contract AuctionSPU {
         feeAddress = payable(_feeAddres);
         highestBid = _startingBid;
         endAt = _period; //timestamp
-        transactionFee = _transactionFee; // 10 -> 0.1%
+        transactionFee = _transactionFee; // 10000 -> 0.1%
+        _docsRegister = _docsRegister;
+        _docsProcess = docsProcess;
     }
 
     modifier onlyOwner() {
@@ -203,26 +211,27 @@ contract AuctionSPU {
 
     // Adicionar whitelist pra bid
     function newBid(
-        uint _totalValue,        
+        uint _totalValue,   
+        uint _realValue,     
         uint _portion,
         uint _clientScore    
     ) external payable auctionStarted auctionPaused {
         require(block.timestamp < endAt, "Already ended");        
         require(msg.sender != seller, "Seller not allowed");
         require(_isWhitelist(msg.sender), "Permission denied");  
+        require(_realValue > highestBid, "Lower Bid");
 
         uint fee = ( msg.value / FEE_BASE) * transactionFee;
-        totalFee += fee;  
-
-        require(msg.value - fee > highestBid, "Lower Bid");
+        totalFee += fee;         
 
         cashback(highestBidder, receivedBids[highestBidder].downpay); 
 
 
         if (receivedBids[msg.sender].totalValue != 0) {             
             
-            receivedBids[msg.sender].totalValue = _totalValue;
             receivedBids[msg.sender].downpay = msg.value - fee;
+            receivedBids[msg.sender].realValue = _realValue;
+            receivedBids[msg.sender].totalValue = _totalValue;            
             receivedBids[msg.sender].portion = _portion;
             receivedBids[msg.sender].clientScore = _clientScore;
 
@@ -230,17 +239,18 @@ contract AuctionSPU {
 
             Bidders memory b;
             b.downpay = msg.value - fee;
-            b.totalValue = _totalValue;      
+            b.totalValue = _totalValue;
+            b.realValue = _realValue;    
             b.portion = _portion;
             b.clientScore = _clientScore;
             receivedBids[msg.sender] = b;
         }
 
         highestBidder = msg.sender;
-        highestBid = msg.value - fee;
+        highestBid = _realValue;
         numberOfBids += 1;
 
-        emit Bid(msg.sender, msg.value - fee);
+        emit Bid(msg.sender, _realValue);
     }
 
     function withdraw() external {

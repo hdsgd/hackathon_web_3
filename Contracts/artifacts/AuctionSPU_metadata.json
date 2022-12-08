@@ -14,6 +14,16 @@
 					},
 					{
 						"internalType": "address",
+						"name": "_docsRegister",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_docsProcess",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
 						"name": "_feeAddres",
 						"type": "address"
 					},
@@ -232,6 +242,32 @@
 			},
 			{
 				"inputs": [],
+				"name": "docsProcess",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "docsRegister",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "endAt",
 				"outputs": [
 					{
@@ -343,6 +379,11 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "_realValue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "_portion",
 						"type": "uint256"
 					},
@@ -429,6 +470,11 @@
 					{
 						"internalType": "uint256",
 						"name": "totalValue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "realValue",
 						"type": "uint256"
 					},
 					{
@@ -561,11 +607,11 @@
 	},
 	"sources": {
 		"Contracts/AuctionSPU.sol": {
-			"keccak256": "0xc74e8ae9889fc8c81ee5ad70396b79aeef2abb2344a68eca3a55c2274341b403",
+			"keccak256": "0x6f005c189de8aee08d783e32e8f2c138f29a6e935d8ed93953ce58b91e455344",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://abc916c2fe0a232b69c833e1615981dbcb240e126af9d6388a1e75b118ec2c36",
-				"dweb:/ipfs/QmVbmLboggUuHsRoLz8RdTB87Npf7rNkFUVg1QGsDBaNEv"
+				"bzz-raw://848ceb7f3be539959b31cce4ffcefc5f8b5e1739c8ebd3fe22009f402179ed2e",
+				"dweb:/ipfs/QmVyymciuBN3ubo2s3k7AXySDgcBzL9ZLyHLChX9ShnUeo"
 			]
 		}
 	},

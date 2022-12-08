@@ -426,7 +426,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -513,11 +513,11 @@
 			]
 		},
 		"Contracts/NFTMinter.sol": {
-			"keccak256": "0xe8256f8c724ada20a79c4919465eb2e85c7757f89b07754a2d8d6657c2c70c2f",
+			"keccak256": "0x11ec837bf5b5eb9f569a2b8cb718b4b3341e3cf082735cc73cce70f76338271a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://89a3a2bceab256e62806ce749ee0cf2264f84781d426e28c6ac777177807a5e6",
-				"dweb:/ipfs/QmQJc6FFqDD8nUwEhsx6K59b8dXNw5xd8QLPX7KR72QZrg"
+				"bzz-raw://109780773a762ef52a0208a271ba8dd36c9b5b50444c5659b3a1d9a9f694d236",
+				"dweb:/ipfs/QmVnHseGeVmRcsU3UhzvSevUVsqr7VDmcT6msT8awkVakS"
 			]
 		}
 	},
