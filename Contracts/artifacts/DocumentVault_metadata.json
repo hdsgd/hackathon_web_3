@@ -1,0 +1,233 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_minimunFee",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "publisher",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "docProcess",
+						"type": "string"
+					}
+				],
+				"name": "NewDocAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "enable",
+						"type": "bool"
+					}
+				],
+				"name": "SetWhitelistByAddress",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_typeOfDocument",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_docsURI",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_docsURIChesksum",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_publisherResponsible",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_docProcess",
+						"type": "string"
+					}
+				],
+				"name": "addNewDoc",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_account",
+						"type": "address"
+					}
+				],
+				"name": "isWhitelist",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "registeredDocs",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "typeOfDocument",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "docsURI",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "docsURIChesksum",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "publisherResponsible",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_account",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "enable",
+						"type": "bool"
+					}
+				],
+				"name": "setWhitelist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contracts/DocumentVault.sol": "DocumentVault"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contracts/DocumentVault.sol": {
+			"keccak256": "0xffc44a56771cc04413d5b458916f78c2b86f763d871fce7328c6ca113a5a02b0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://da3fe87275bef139755cb16b666cc4d10b7a609bb6f36f4363734f3379744d0c",
+				"dweb:/ipfs/QmPWnkPXq4X1h9kQurGRgU38VGTqf24VF3djBKmRr8imFU"
+			]
+		}
+	},
+	"version": 1
+}
