@@ -5,11 +5,11 @@ import "./PaymentSplit.sol";
 
 contract PaymentSplitFactory{
 
-        event NewTokenGenerated(address creator, address newTokenAddress);
+        event NewPaymentSplitGenerated(address creator, address newTokenAddress);
 
-        PaymentSplit[] public _paymentTokens;
+        PaymentSplit[] public _paymentSplit;
 
-        mapping(address => uint) public _indexOfTokensByAddress;
+        mapping(address => uint) public _indexOfPaymentSplitByAddress;
 
         address payable public owner;
 
@@ -23,18 +23,17 @@ contract PaymentSplitFactory{
         }
 
         function createPaymentTokens(
-            string memory _tokenName,
-            string memory _tokenSymbol,
+            
             address payable _owner
 
         )public onlyOwner{
-            PaymentSplit newToken = new PaymentSplit(                
+            PaymentSplit newSplitPayment = new PaymentSplit(                
                 _owner
             );
             
-            _paymentTokens.push(newToken);
-            _indexOfTokensByAddress[newToken.getAddress()] = (_paymentTokens.length - 1);
-            emit NewTokenGenerated(msg.sender, newToken.getAddress());
+            _paymentSplit.push(newSplitPayment);
+            _indexOfPaymentSplitByAddress[newSplitPayment.getAddress()] = (_paymentSplit.length - 1);
+            emit NewPaymentSplitGenerated(msg.sender, newSplitPayment.getAddress());
         }                
 
 }
