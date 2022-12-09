@@ -418,7 +418,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Contracts/NFTMinter.sol": "NFTProperty"
+			"Contracts/NFTMinter.sol": "NFTMinter"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -513,11 +513,11 @@
 			]
 		},
 		"Contracts/NFTMinter.sol": {
-			"keccak256": "0x11ec837bf5b5eb9f569a2b8cb718b4b3341e3cf082735cc73cce70f76338271a",
+			"keccak256": "0x94d7cf0e8bb83789717e09df133fb82fba280678d79b4ba764cfdf21448254bc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://109780773a762ef52a0208a271ba8dd36c9b5b50444c5659b3a1d9a9f694d236",
-				"dweb:/ipfs/QmVnHseGeVmRcsU3UhzvSevUVsqr7VDmcT6msT8awkVakS"
+				"bzz-raw://9923b01ab11c01e41f5e891b48b4a316186474c5c29c66a1155a288bb74c96b7",
+				"dweb:/ipfs/QmNvkDzot6GzyZwCuAmBbrfpVDjahbyBsRrMVscsUmmYeX"
 			]
 		}
 	},

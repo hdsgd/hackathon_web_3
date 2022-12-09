@@ -32,17 +32,17 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "from",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "tokenId",
 						"type": "uint256"
 					}
 				],
@@ -53,13 +53,26 @@
 			}
 		],
 		"devdoc": {
+			"details": "The interface is used for transfering the NFT to e from the smart contract",
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"safeTransferFrom(address,address,uint256)": {
+					"params": {
+						"from": "The address that initially holds a NFT",
+						"to": "The receiver of the NFT",
+						"tokenId": "ID of the token"
+					}
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "Optional use, in this contract is used in the startAuction method by the owner ,   the owner is already prepared for ERC-721"
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
 			"methods": {},
+			"notice": "Interface with ERC-721 standard",
 			"version": 1
 		}
 	},
@@ -80,11 +93,11 @@
 	},
 	"sources": {
 		"Contracts/AuctionSPU.sol": {
-			"keccak256": "0x6f005c189de8aee08d783e32e8f2c138f29a6e935d8ed93953ce58b91e455344",
+			"keccak256": "0x738b6386b69e24877754c589b2f0a6705efa74b6b986d7e79e5c4b85a0870ac3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://848ceb7f3be539959b31cce4ffcefc5f8b5e1739c8ebd3fe22009f402179ed2e",
-				"dweb:/ipfs/QmVyymciuBN3ubo2s3k7AXySDgcBzL9ZLyHLChX9ShnUeo"
+				"bzz-raw://72636868a2656173ebea9c0befd79ca75abc47f2aaeba20e3356fba3d0c26d2d",
+				"dweb:/ipfs/QmZ4sLCqDZWRfN1oEUhBPbKQRvvDAjKGcbvvuaF7yLpuT1"
 			]
 		}
 	},

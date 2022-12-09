@@ -1,9 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+/// @notice This contract is gas and security simple optimized, further improvements are appreciated
+/// @dev The main method bid is only acessible via _whitelist array mainly to avoid Denial of Service
+/// @custom:project This contract is part of a entire project , including a AuctionFactory contract
+
+
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract NFTProperty is ERC721 {   
+contract NFTMinter is ERC721 {   
 
     address owner;
     string IPFSBaseURI; 

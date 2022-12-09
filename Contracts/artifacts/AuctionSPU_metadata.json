@@ -198,25 +198,6 @@
 				"type": "event"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "bidder",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Withdraw",
-				"type": "event"
-			},
-			{
 				"stateMutability": "payable",
 				"type": "fallback"
 			},
@@ -568,25 +549,113 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "withdraw",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"stateMutability": "payable",
 				"type": "receive"
 			}
 		],
 		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"closeAuction()": {
+					"details": "When this method is called the auction is finally closed Method steps: {1} - Verifications {2} - Safe Transfer the NFT for the highestBidder {3} - Pay the total fee of the auction {4} - Pay the highestBid to the seller {5} - Emit an event for newBid"
+				},
+				"constructor": {
+					"details": "Sets the values for :  {_nft} -> Address of the nft  {_docsRegister} -> The smart contract that stores all the real-state documentation  {_docsProcess} -> The SPU process identifier  {_feeAddres} -> The address that will receives the fees o the auction  {_nftId} -> NFT id, in case of collection, default value 0  {_startingBid} -> The initial bid value  {_period} -> Duration of the auction, timestamp pattern  {_transactionFee} -> Fee charged on every bid , e.g. 100 = 1%"
+				},
+				"endAuction()": {
+					"details": "Once ended only no more bids are allowed , no transfers are done yet"
+				},
+				"getBalance()": {
+					"returns": {
+						"_0": "Returns the native token amount inside this contract."
+					}
+				},
+				"isWhitelist(address)": {
+					"params": {
+						"_account": "Consultant address"
+					},
+					"returns": {
+						"_0": "Boolean of the privilege setted"
+					}
+				},
+				"newBid(uint256,uint256,uint256,uint256)": {
+					"details": "Is mandatory to add any bidder previously in the _whitelist array Method steps: {1} - Verifications {2} - Calculate transaction fee {3} - Refund for the last highestBidder {4} - Store bid data {5} - Store highest bid {6} - Emit an event for newBid"
+				},
+				"pauseAuction()": {
+					"details": "Once paused, this method neither restart the autcion or change any bid"
+				},
+				"setWhitelist(address,bool)": {
+					"params": {
+						"_account": "The address to insert",
+						"enable": "True to guarantee privilegies, false to remove privilegies"
+					}
+				},
+				"startAuction()": {
+					"details": "The owner of the NFT MUST hold the NFT before call this method"
+				},
+				"unpauseAuction()": {
+					"details": "Once unpaused, this method neither restart the autcion or change any bid"
+				}
+			},
+			"title": "Auction for real-state NFT sell",
 			"version": 1
 		},
 		"userdoc": {
+			"events": {
+				"Bid(address,uint256)": {
+					"notice": "New bid made"
+				},
+				"BidPayment(address,uint256)": {
+					"notice": "Bid paid for the seller"
+				},
+				"Cashback(address,uint256)": {
+					"notice": "Amount returned for last highest bidder when highest bidder changed"
+				},
+				"EndAuction(address,uint256)": {
+					"notice": "Auction ended"
+				},
+				"FeePayment(address,uint256)": {
+					"notice": "Fee of the auction sent to feeAddress"
+				},
+				"PauseAuction(address)": {
+					"notice": "Auction paused"
+				},
+				"SetWhitelistByAddress(address,bool)": {
+					"notice": "New address added to whitelist"
+				},
+				"StartAuction()": {
+					"notice": "Auction started"
+				},
+				"UnpauseAuction(address)": {
+					"notice": "Auction unpaused"
+				}
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"endAuction()": {
+					"notice": "End the auction"
+				},
+				"getBalance()": {
+					"notice": "Function to get the balance of the contract"
+				},
+				"isWhitelist(address)": {
+					"notice": "Public method to check if address has privilegies"
+				},
+				"pauseAuction()": {
+					"notice": "Pause the auction"
+				},
+				"setWhitelist(address,bool)": {
+					"notice": "Method to insert new address to the whitelist"
+				},
+				"startAuction()": {
+					"notice": "Start the auction"
+				},
+				"unpauseAuction()": {
+					"notice": "Unpause the auction"
+				}
+			},
+			"notice": "AuctionSPU contract",
 			"version": 1
 		}
 	},
@@ -607,11 +676,11 @@
 	},
 	"sources": {
 		"Contracts/AuctionSPU.sol": {
-			"keccak256": "0x6f005c189de8aee08d783e32e8f2c138f29a6e935d8ed93953ce58b91e455344",
+			"keccak256": "0x738b6386b69e24877754c589b2f0a6705efa74b6b986d7e79e5c4b85a0870ac3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://848ceb7f3be539959b31cce4ffcefc5f8b5e1739c8ebd3fe22009f402179ed2e",
-				"dweb:/ipfs/QmVyymciuBN3ubo2s3k7AXySDgcBzL9ZLyHLChX9ShnUeo"
+				"bzz-raw://72636868a2656173ebea9c0befd79ca75abc47f2aaeba20e3356fba3d0c26d2d",
+				"dweb:/ipfs/QmZ4sLCqDZWRfN1oEUhBPbKQRvvDAjKGcbvvuaF7yLpuT1"
 			]
 		}
 	},

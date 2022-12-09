@@ -1,21 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-
-/*
-
-O que est programa faz?
-
-registra o tipo de documento, URI (IPFS) , checksum do URI  e responsável 
-retorna os dados para o numero do processo
-
-
- 521B582011D8EE7F6A80500C42CD997BAD7EE70366031898DE008E17CA59CB2BE2AE919344B63D2B23520A289E7793C5BF273B56E61BC0E133ED0A10F3A697AA
-doc 123456ABCDE
-
-
-*/
-
 contract DocumentVault {
 
     event NewDocAdded(address indexed publisher , string docProcess);
@@ -24,11 +9,11 @@ contract DocumentVault {
     address payable public owner;
     uint minimunFee;
 
-    struct Documentation {              // Process 123456ABCDE
-        string typeOfDocument;          // Matricula Imovel
-        string docsURI;                 // https://ipfs.io/ipfs/QmQScMLzQbXoeZxBE9P8Y7oAyo1fZ2bq1QimeHiJ12JanU             
-        string docsURIChesksum;         // 521B582011D8EE7F6A80500C42CD997BAD7EE70366031898DE008E17CA59CB2BE2AE919344B63D2B23520A289E7793C5BF273B56E61BC0E133ED0A10F3A697AA   
-        string publisherResponsible;    // Gustavo Henrique
+    struct Documentation {              
+        string typeOfDocument;          
+        string docsURI;                            
+        string docsURIChesksum;         
+        string publisherResponsible;   
     } 
 
     mapping(string => Documentation) public registeredDocs;
