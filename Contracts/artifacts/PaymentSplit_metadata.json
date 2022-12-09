@@ -179,13 +179,64 @@
 			}
 		],
 		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"addRecipients(address,uint256)": {
+					"details": "The total sum of percentage is 100%, in this way be aware of the _amount",
+					"params": {
+						"_addrs": "The address of the recipient",
+						"_amount": "The percentage amount to pay"
+					}
+				},
+				"getAddress()": {
+					"details": "This method supports PaymentSplitFactory contract",
+					"returns": {
+						"_splitPaymentAddress": "Address of the payment sppliter contract"
+					}
+				},
+				"getFeeByAddress(address)": {
+					"params": {
+						"_addrs": "The address of the recipient"
+					},
+					"returns": {
+						"fee": "The percentage amount to pay"
+					}
+				},
+				"getTotalFee()": {
+					"returns": {
+						"totalFee": "The total percentage amount to pay"
+					}
+				},
+				"paySplitFee()": {
+					"details": "The total sum of percentage is 100%, in this way be aware of the _amount,   a possible improvement is use getTotalFee verification"
+				}
+			},
+			"title": "Payment sppliter",
 			"version": 1
 		},
 		"userdoc": {
+			"events": {
+				"FeePaid(address,uint256)": {
+					"notice": "Payment sent to recipients"
+				}
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"addRecipients(address,uint256)": {
+					"notice": "Method for adding new recipients"
+				},
+				"getAddress()": {
+					"notice": "Public method to retrieve contract's address"
+				},
+				"getFeeByAddress(address)": {
+					"notice": "Method to retrieve the amount to pay for a recipient"
+				},
+				"getTotalFee()": {
+					"notice": "Public method to retrieve the total amount registered"
+				}
+			},
+			"notice": "PaymentSplit contract",
 			"version": 1
 		}
 	},
@@ -206,11 +257,11 @@
 	},
 	"sources": {
 		"Contracts/PaymentSplit.sol": {
-			"keccak256": "0xb5118f2b4f4fbf2b6304d0cb66326dd2a2e2842f4a937e9c7e93f1fc19a81ffa",
+			"keccak256": "0x6705bdc200439792379f15ffe2413ce127706b6dfe3b8c23045a611a9afaa32c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://343b5e3c719ec5128ad61cbda67b69e1b2fb5ec8d2248f78567187eebbc017b0",
-				"dweb:/ipfs/QmRtEb4MruzZSyNk9U4c779FHRn2HcVQ88wnsvwrwdJ23u"
+				"bzz-raw://7b03969272c2985b2505b1cbfad83771367c997da48ca83eab75a424dee43384",
+				"dweb:/ipfs/QmcdeR3yXKwNXDi7y8ftuYZbM35KpXNi5TEK9NzPL18KCy"
 			]
 		}
 	},

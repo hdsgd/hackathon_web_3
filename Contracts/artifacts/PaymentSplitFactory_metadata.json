@@ -95,13 +95,29 @@
 			}
 		],
 		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"createPaymentTokens(address)": {
+					"details": "This contract creates other contracts, be aware of the address of the payment spliter generated"
+				}
+			},
+			"title": "Factory to create payment spliter contracts",
 			"version": 1
 		},
 		"userdoc": {
+			"events": {
+				"NewPaymentSplitGenerated(address,address)": {
+					"notice": "New contract minted"
+				}
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"createPaymentTokens(address)": {
+					"notice": "Method for creating new payment spliter contract"
+				}
+			},
+			"notice": "PaymentSplitFactory contract",
 			"version": 1
 		}
 	},
@@ -121,20 +137,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"Contracts/PaymentSplit.sol": {
+		"Contracts/PaymentSplitFactory.sol": {
+			"keccak256": "0xa06d0f52c8da8771c5a5697291f9bf826017d916fcc5c016386c4a336860a66f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://48a8d8dd5a2dc27e3043cd90f753bdc63f20fb042298fae0ff4dcb739e4379ff",
+				"dweb:/ipfs/QmaXFmhd35YxjXFtrA13NerPTgUD5sAgsPFhRkPvnfAJCD"
+			]
+		},
+		"https://github.com/hdsgd/hackathon_web_3/blob/main/Contracts/PaymentSplit.sol": {
 			"keccak256": "0xb5118f2b4f4fbf2b6304d0cb66326dd2a2e2842f4a937e9c7e93f1fc19a81ffa",
 			"license": "MIT",
 			"urls": [
 				"bzz-raw://343b5e3c719ec5128ad61cbda67b69e1b2fb5ec8d2248f78567187eebbc017b0",
 				"dweb:/ipfs/QmRtEb4MruzZSyNk9U4c779FHRn2HcVQ88wnsvwrwdJ23u"
-			]
-		},
-		"Contracts/PaymentSplitFactory.sol": {
-			"keccak256": "0x9e2ccdf00502de1734ae9523ef5ad75c641fb7985264aceb3142b28a4665ae54",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://d4791a8862cfac984f9ddc73fc983920f8ae7e4890631357921a2731d02cdca9",
-				"dweb:/ipfs/Qme8d9b5BPSRvywoSA5DqnKk5uis9oJWFsHVxteKtP8reN"
 			]
 		}
 	},

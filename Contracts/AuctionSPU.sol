@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 /// @notice This contract is gas and security simple optimized, further improvements are appreciated
 /// @dev The main method bid is only acessible via _whitelist array mainly to avoid Denial of Service
-/// @custom:project This contract is part of a entire project , including a AuctionFactory contract
+/// @custom:project This contract is part of a entire project
 
 /// @notice Interface with ERC-721 standard
 /// @dev The interface is used for transfering the NFT to e from the smart contract

@@ -11,6 +11,16 @@
 						"internalType": "string",
 						"name": "_IPFSBaseURI",
 						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_nftName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_nftSymbol",
+						"type": "string"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -366,6 +376,7 @@
 			}
 		],
 		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
 			"kind": "dev",
 			"methods": {
 				"approve(address,uint256)": {
@@ -373,6 +384,9 @@
 				},
 				"balanceOf(address)": {
 					"details": "See {IERC721-balanceOf}."
+				},
+				"constructor": {
+					"details": "Sets the values for :  {_IPFSBaseURI} -> The IPFS address that stores NFT files  {_nftName} -> The name of the NFT  {_nftSymbol} -> The symbol attached to the nft"
 				},
 				"getApproved(uint256)": {
 					"details": "See {IERC721-getApproved}."
@@ -385,6 +399,12 @@
 				},
 				"ownerOf(uint256)": {
 					"details": "See {IERC721-ownerOf}."
+				},
+				"safeMint(address,uint256)": {
+					"params": {
+						"to": "The address of the receiver on the NFT",
+						"tokenId": "The of the minted NFT, default 0"
+					}
 				},
 				"safeTransferFrom(address,address,uint256)": {
 					"details": "See {IERC721-safeTransferFrom}."
@@ -408,11 +428,17 @@
 					"details": "See {IERC721-transferFrom}."
 				}
 			},
+			"title": "NFT Minter for real state salles",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"safeMint(address,uint256)": {
+					"notice": "Function safety mint the NFT"
+				}
+			},
+			"notice": "NFTMinter contract",
 			"version": 1
 		}
 	},
@@ -513,11 +539,11 @@
 			]
 		},
 		"Contracts/NFTMinter.sol": {
-			"keccak256": "0x94d7cf0e8bb83789717e09df133fb82fba280678d79b4ba764cfdf21448254bc",
+			"keccak256": "0x1159f2c165bb5fdac6f58bbbe7e5ac8ea820bb69ba056aeeab3067ca14ab4b9e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9923b01ab11c01e41f5e891b48b4a316186474c5c29c66a1155a288bb74c96b7",
-				"dweb:/ipfs/QmNvkDzot6GzyZwCuAmBbrfpVDjahbyBsRrMVscsUmmYeX"
+				"bzz-raw://11d78dfefe4181035e9bbb9f892fabdee194f7e51d1890b94c60c776cb36ed8b",
+				"dweb:/ipfs/QmQWjwfH41SMjAUnANYHrtHp72PE7BEL6MbzGKv9GYDSKj"
 			]
 		}
 	},
