@@ -67,3 +67,7 @@ In this section we describe a complementary way to sell SPU real estate , fracti
 The concept is very simples, a state is sold in pieces ,known as tokens, to stakeholders . To deliver this solution our team create customizable ERC-20 , a token standard, a ERC-20 factory that create customizable tokens , a payment splitter standard and a payment splitter factory that can be used by the other solutions.
 The role ideia is create a real estate token, customized and with all the documentation attached to guarantee the integrity of the sell. In general the name and the symbol of the token as the metadata are related to the real estate.
 In a future development our team will create a voting system to the real state sold, once the decision of management is divided by the token holders.
+
+# Important Key Note
+For security purposes our project could be easily changed to handle multisig contracts. For example in the contract PaymentSplit.sol on the method paySplitFee(), instead of onlyOwner, we use a modifier to accept interactions by only a specific address.
+Multisig contracts are a canonical type of contract that only start a interaction (e.g. transfer tokens) if a minimum quorum is reached.
