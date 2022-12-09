@@ -6,13 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "_owner",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -22,26 +16,28 @@
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_from",
+						"name": "creator",
 						"type": "address"
 					},
 					{
 						"indexed": false,
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "newTokenAddress",
+						"type": "address"
 					}
 				],
-				"name": "FeePaid",
+				"name": "NewPaymentSplitGenerated",
 				"type": "event"
 			},
 			{
-				"stateMutability": "payable",
-				"type": "fallback"
-			},
-			{
-				"inputs": [],
-				"name": "FEE_BASE",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_indexOfPaymentSplitByAddress",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -55,17 +51,17 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "_recipients",
-				"outputs": [
-					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"name": "_paymentSplit",
+				"outputs": [
+					{
+						"internalType": "contract PaymentSplit",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -75,63 +71,13 @@
 				"inputs": [
 					{
 						"internalType": "address payable",
-						"name": "_addrs",
+						"name": "_owner",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
 					}
 				],
-				"name": "addRecipients",
+				"name": "createPaymentTokens",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getAddress",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "_splitPaymentAddress",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "_addrs",
-						"type": "address"
-					}
-				],
-				"name": "getFeeByAddress",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "fee",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getTotalFee",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "totalFee",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -146,36 +92,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "paySplitFee",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "recipients",
-				"outputs": [
-					{
-						"internalType": "address payable",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"stateMutability": "payable",
-				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -191,7 +107,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Contracts/PaymentSplit.sol": "PaymentSplit"
+			"Contracts/PaymentSplitFactory.sol": "PaymentSplitFactory"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -211,6 +127,14 @@
 			"urls": [
 				"bzz-raw://343b5e3c719ec5128ad61cbda67b69e1b2fb5ec8d2248f78567187eebbc017b0",
 				"dweb:/ipfs/QmRtEb4MruzZSyNk9U4c779FHRn2HcVQ88wnsvwrwdJ23u"
+			]
+		},
+		"Contracts/PaymentSplitFactory.sol": {
+			"keccak256": "0x9e2ccdf00502de1734ae9523ef5ad75c641fb7985264aceb3142b28a4665ae54",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d4791a8862cfac984f9ddc73fc983920f8ae7e4890631357921a2731d02cdca9",
+				"dweb:/ipfs/Qme8d9b5BPSRvywoSA5DqnKk5uis9oJWFsHVxteKtP8reN"
 			]
 		}
 	},

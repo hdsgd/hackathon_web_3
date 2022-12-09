@@ -50,15 +50,20 @@ contract PaymentSplit{
             require(address(this).balance != 0, "Not enugh funds");
             require(_getTotalFee() == FEE_BASE, "Payment not split entirely");
 
-            uint256 share=0;             
+            uint256 share=0;  
+            uint totalFeeValue =  address(this).balance;          
           
             for(uint i=0; i < recipients.length; i++){
-                share = (address(this).balance/ FEE_BASE) * _recipients[recipients[i]];
+                share = (totalFeeValue/ FEE_BASE) * _recipients[recipients[i]];
                 (bool callSuccessFee, ) = payable(recipients[i]).call{value: share}("");
                 require(callSuccessFee, "Return fee funds failed");
                 emit FeePaid(recipients[i], share);
             }   
             
+        }
+
+        function getAddress() public view returns(address _splitPaymentAddress){
+            _splitPaymentAddress = address(this);
         }
         
         // Function to receive Ether. msg.data must be empty
