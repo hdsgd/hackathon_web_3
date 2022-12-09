@@ -448,6 +448,7 @@
 			}
 		],
 		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
 			"kind": "dev",
 			"methods": {
 				"DOMAIN_SEPARATOR()": {
@@ -468,14 +469,29 @@
 				"burnFrom(address,uint256)": {
 					"details": "Destroys `amount` tokens from `account`, deducting from the caller's allowance. See {ERC20-_burn} and {ERC20-allowance}. Requirements: - the caller must have allowance for ``accounts``'s tokens of at least `amount`."
 				},
+				"constructor": {
+					"details": "Sets the values for :  {_tokenName} -> The token name , e.g. bitcoin  {_tokenSymbol} -> The symbol of the token , e.g. BTC"
+				},
 				"decimals()": {
 					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
 				},
 				"decreaseAllowance(address,uint256)": {
 					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
 				},
+				"getAddress()": {
+					"details": "This method supports VariableTokenFactory contract",
+					"returns": {
+						"_tokenAddress": "Address of the token"
+					}
+				},
 				"increaseAllowance(address,uint256)": {
 					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
+				},
+				"mint(address,uint256)": {
+					"params": {
+						"amount": "The total amount that will be minted",
+						"to": "The address that will receive new tokens"
+					}
 				},
 				"name()": {
 					"details": "Returns the name of the token."
@@ -499,11 +515,20 @@
 					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`."
 				}
 			},
+			"title": "Variable token to allow split real estate ownership",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"getAddress()": {
+					"notice": "Public method to retrieve contract's address"
+				},
+				"mint(address,uint256)": {
+					"notice": "Public method to mint new tokens"
+				}
+			},
+			"notice": "VariableToken contract",
 			"version": 1
 		}
 	},
@@ -620,11 +645,11 @@
 			]
 		},
 		"Contracts/VariableTokenMinter.sol": {
-			"keccak256": "0xfca554b306f45d33413da23fae25e2f754226aa30f44fdc03c69360f1539a9ed",
+			"keccak256": "0x42774fe200477dc0edf5b5ab358ee9fee04b5db7be3ab5deacc4d60974235bb9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8142c7281e87f707055afc09e690783368eba4a68e507ed2ac0a39673ca4a375",
-				"dweb:/ipfs/QmNuDVb4QWELb4j5BLAevTdDTXYLanqZJKDD7DgSpw7LSj"
+				"bzz-raw://d318e51ec1949510fbed06fb1824c0b76967e4a709c955a96ba5a51017c28cb9",
+				"dweb:/ipfs/QmTzVc2WUBZqKJHxmMXf1VvKzFsWiqYwxB2SGeqzkMdJfh"
 			]
 		}
 	},

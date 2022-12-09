@@ -105,13 +105,33 @@
 			}
 		],
 		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"createPaymentTokens(string,string,address)": {
+					"details": "This contract creates other contracts, be aware of the address of the tokens generated",
+					"params": {
+						"_tokenName": "The token name , e.g. bitcoin",
+						"_tokenSymbol": "The symbol of the token , e.g. BTC"
+					}
+				}
+			},
+			"title": "Factory to create new ERC-20 Tokens",
 			"version": 1
 		},
 		"userdoc": {
+			"events": {
+				"NewTokenGenerated(address,address)": {
+					"notice": "New token minted"
+				}
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"createPaymentTokens(string,string,address)": {
+					"notice": "Method for creating new custom tokens"
+				}
+			},
+			"notice": "VariableTokenFactory contract",
 			"version": 1
 		}
 	},
@@ -228,14 +248,14 @@
 			]
 		},
 		"Contracts/VariableTokenFactory.sol": {
-			"keccak256": "0x2c4682bf4c4a9198570c2b0d49fac75e0619d3af3167e236e5a0bbdff9dd34af",
+			"keccak256": "0xf339b83fbaae9b5c25b14f4a9acc6fac6ba005e1615a9560a91cd0147578a34d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0bb23e5336cc068760b949c20b19dd07d50b906eae28f55e9b2dc32c0fce69d4",
-				"dweb:/ipfs/QmS5x5WoNtWjVhL8cV5bXckNCkTADfw2d9PPmD4VYA5Zew"
+				"bzz-raw://3667a28da21bc9bd9691ce99314be62b11cb00497f9bdcc747230a5cda80296c",
+				"dweb:/ipfs/QmXHwkQN9y79yAUmk1xr2bMN4c9GpsPhEzhUUZjiURYsQy"
 			]
 		},
-		"Contracts/VariableTokenMinter.sol": {
+		"https://github.com/hdsgd/hackathon_web_3/blob/main/Contracts/VariableTokenMinter.sol": {
 			"keccak256": "0xfca554b306f45d33413da23fae25e2f754226aa30f44fdc03c69360f1539a9ed",
 			"license": "MIT",
 			"urls": [

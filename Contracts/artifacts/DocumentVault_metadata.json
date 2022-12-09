@@ -194,13 +194,70 @@
 			}
 		],
 		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"addNewDoc(string,string,string,string,string)": {
+					"details": "The owner of the contract could insert a fee to publish data, default 0 , e.g. 100 = 1%",
+					"params": {
+						"_docProcess": "The string to retrieve the data, should be related to the context of the documentation",
+						"_docsURI": "The IPFS CID of the tree documentation  e.g. Auction_Docs",
+						"_docsURIChesksum": "The hash of the tree documentation, certify the integrity of the data",
+						"_publisherResponsible": "The responsible for publishing the documentation",
+						"_typeOfDocument": "Type of the document added"
+					}
+				},
+				"constructor": {
+					"details": "Sets the values for :  {minimunFee} -> The fee charged on every new document added"
+				},
+				"getBalance()": {
+					"returns": {
+						"_0": "uint of the total native token balance"
+					}
+				},
+				"isWhitelist(address)": {
+					"params": {
+						"_account": "Consultant address"
+					},
+					"returns": {
+						"_0": "Boolean of the privilege setted"
+					}
+				},
+				"setWhitelist(address,bool)": {
+					"params": {
+						"_account": "The address to insert",
+						"enable": "True to guarantee privilegies, false to remove privilegies"
+					}
+				}
+			},
+			"title": "Vault for store real estate documents",
 			"version": 1
 		},
 		"userdoc": {
+			"events": {
+				"NewDocAdded(address,string)": {
+					"notice": "New document added"
+				},
+				"SetWhitelistByAddress(address,bool)": {
+					"notice": "New address added to allowed publishers"
+				}
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"addNewDoc(string,string,string,string,string)": {
+					"notice": "Method for adding new documentation"
+				},
+				"getBalance()": {
+					"notice": "Public method to retrieve contract's balance"
+				},
+				"isWhitelist(address)": {
+					"notice": "Public method to check if address has privilegies"
+				},
+				"setWhitelist(address,bool)": {
+					"notice": "Method to insert new address to the whitelist"
+				}
+			},
+			"notice": "DocumentVault contract",
 			"version": 1
 		}
 	},
@@ -221,11 +278,11 @@
 	},
 	"sources": {
 		"Contracts/DocumentVault.sol": {
-			"keccak256": "0xffc44a56771cc04413d5b458916f78c2b86f763d871fce7328c6ca113a5a02b0",
+			"keccak256": "0xd10c53c417db50e48b18af8e747c4543079d548befc54628ef0c4c07411977d0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://da3fe87275bef139755cb16b666cc4d10b7a609bb6f36f4363734f3379744d0c",
-				"dweb:/ipfs/QmPWnkPXq4X1h9kQurGRgU38VGTqf24VF3djBKmRr8imFU"
+				"bzz-raw://aaca7298cce1846404382921ded9eca3abb56e4aebdf7dfec1209cd908c69f96",
+				"dweb:/ipfs/QmXSspZCLLcvR9SrZoWtCuiv4c5uMfZAcDz59c3zAVNBTK"
 			]
 		}
 	},
