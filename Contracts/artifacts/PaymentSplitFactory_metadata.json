@@ -1,0 +1,158 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newTokenAddress",
+						"type": "address"
+					}
+				],
+				"name": "NewPaymentSplitGenerated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_indexOfPaymentSplitByAddress",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "_paymentSplit",
+				"outputs": [
+					{
+						"internalType": "contract PaymentSplit",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "createPaymentTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Gustavo Henrique / gustavo@useinsignia.com",
+			"kind": "dev",
+			"methods": {
+				"createPaymentTokens(address)": {
+					"details": "This contract creates other contracts, be aware of the address of the payment spliter generated"
+				}
+			},
+			"title": "Factory to create payment spliter contracts",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"NewPaymentSplitGenerated(address,address)": {
+					"notice": "New contract minted"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"createPaymentTokens(address)": {
+					"notice": "Method for creating new payment spliter contract"
+				}
+			},
+			"notice": "PaymentSplitFactory contract",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contracts/PaymentSplitFactory.sol": "PaymentSplitFactory"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contracts/PaymentSplitFactory.sol": {
+			"keccak256": "0xa06d0f52c8da8771c5a5697291f9bf826017d916fcc5c016386c4a336860a66f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://48a8d8dd5a2dc27e3043cd90f753bdc63f20fb042298fae0ff4dcb739e4379ff",
+				"dweb:/ipfs/QmaXFmhd35YxjXFtrA13NerPTgUD5sAgsPFhRkPvnfAJCD"
+			]
+		},
+		"https://github.com/hdsgd/hackathon_web_3/blob/main/Contracts/PaymentSplit.sol": {
+			"keccak256": "0xb5118f2b4f4fbf2b6304d0cb66326dd2a2e2842f4a937e9c7e93f1fc19a81ffa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://343b5e3c719ec5128ad61cbda67b69e1b2fb5ec8d2248f78567187eebbc017b0",
+				"dweb:/ipfs/QmRtEb4MruzZSyNk9U4c779FHRn2HcVQ88wnsvwrwdJ23u"
+			]
+		}
+	},
+	"version": 1
+}
