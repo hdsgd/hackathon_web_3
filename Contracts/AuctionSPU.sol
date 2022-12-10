@@ -57,7 +57,7 @@ contract AuctionSPU {
     address payable public seller;
     address payable public feeAddress;
     address public docsRegister;
-    uint public docsProcess;
+    string public docsProcess;
     uint public endAt;
     bool public started;
     bool public ended;
@@ -96,7 +96,7 @@ contract AuctionSPU {
     constructor(
         address _nft,
         address _docsRegister,
-        uint _docsProcess,
+        string memory _docsProcess,
         address _feeAddres,
         uint _nftId,
         uint _startingBid,
