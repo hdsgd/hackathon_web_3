@@ -83,8 +83,8 @@ Address : 0x25d1323dCbf60FCF331353bE917cd92CE99ce309
 ## Auction SPU
 Address : 0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495
 
-## Varaible Token Factory
+## Variable Token Factory
 Address : 0x480622fA20A9e6b13bF2C515FEcE0237B50DF332
 
-## Varaible Token Minter Example
-Address : 0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495
+## Variable Token Minter Example
+Address : 0x48A84116EAd9992D4C660100919f6df57B3E8e68
