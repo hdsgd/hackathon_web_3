@@ -4,9 +4,9 @@ This project , develop by INSIGNIA , aims to reach major TOP 1 on the Hackathon 
 
 # Challenge 1
 
-For this first challenge our team develop a vault to storage securely and immutably all the documentation and any kind of register needed to guarantee the safety of the data after and before the process. Our contract uses web3 file storage as know as **IPFS** (Interplanetary File System) allowing virtual unlimited and forever storage, unique identifier of the files, secure encrypted documents for public or private usages and most of all a traceability. One of the best features on using this system is decentralization, that feature allows the file to be always available. The contract was built so any kind of data , document, file or address can be stored and retrieved by anyone who needs or , if is the purpose, is allowed.
->The blockchain itself can't guarantee the validity of the data inserted , as any software can't, it only guarantees the immutability once inserted and preserve a record on all the insertions made .
-
+For this first challenge our team has developed a vault to store securely and immutably all the documentation and any kind of registry needed to guarantee the safety of the real estate tokenization. Our contract uses web3 file storage as known as *IPFS* (Interplanetary File System) allowing virtually unlimited and permanent storage, unique identifier of the files, secure encryption of the documents for public or private usage and most important of all, traceability. 
+One of the best features of using this system is decentralization, this feature allows the file to always be available. The contract was built so that any kind of data, document, file or address could be stored and retrieved by any authorised entity at any time.
+>The blockchain itself can't guarantee the validity of the data inserted, as any software can't, it only guarantees the immutability once inserted and preserve the record of all the insertions made.
 ## The Smart Contract 
 
 The file is DocumentVault.sol 
@@ -58,7 +58,7 @@ In this example the month rate used is 0.9%
 
 
 ## UML Use Case
-![Challenge 2 UML](https://ipfs.io/ipfs/Qma1vAAdHmYQx5qZT3Hy9YBUdRiLKwpWd1mUDY2duFXsxj)
+![Challenge 2 UML](https://ipfs.io/ipfs/Qma1vAAdHmYQx5qZT3Hy9YBUdRiLKwpWd1mUDY2duFXsxj?filename=UML%20Use%20Case%20Challenge%202.png)
 
 
 # Challenge 2 - Fractional Sale
