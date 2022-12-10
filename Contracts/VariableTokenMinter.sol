@@ -18,7 +18,7 @@ import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 /// @title Variable token to allow split real estate ownership
 /// @author Gustavo Henrique / gustavo@useinsignia.com
 /// @notice VariableToken contract
-contract VariableToken is ERC20, ERC20Burnable, ERC20Permit {
+contract VariableTokenMinter is ERC20, ERC20Burnable, ERC20Permit {
     address payable public owner;
 
     /**
