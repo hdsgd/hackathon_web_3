@@ -72,3 +72,10 @@ In a future development our team will create a voting system to the real estate 
 For security purposes our project could be easily changed to handle multisig contracts. For example in the contract PaymentSplit.sol on the method paySplitFee(), instead of onlyOwner, we could use a modifier to accept interactions by only a specific address.
 Multisig contracts are a canonical type of contract that only start an interaction (e.g. transfer tokens) if a minimum quorum is reached.
 
+## Minted contracts
+
+# NFT Minter
+Address : 0x7e13A0Ac958022a18534c8F4d2aD939917e19bcA
+
+# Document Vault
+Address : 0x25d1323dCbf60FCF331353bE917cd92CE99ce309
