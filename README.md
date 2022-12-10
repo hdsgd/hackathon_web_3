@@ -75,22 +75,22 @@ Multisig contracts are a canonical type of contract that only start an interacti
 # Minted contracts
 
 ## NFT Minter
-Address : [https://explorer.celo.org/alfajores/address/0x7e13A0Ac958022a18534c8F4d2aD939917e19bcA]0x7e13A0Ac958022a18534c8F4d2aD939917e19bcA
+Address : (https://explorer.celo.org/alfajores/address/0x7e13A0Ac958022a18534c8F4d2aD939917e19bcA)[0x7e13A0Ac958022a18534c8F4d2aD939917e19bcA]
 
 ## Document Vault
-Address : [https://explorer.celo.org/alfajores/address/0x25d1323dCbf60FCF331353bE917cd92CE99ce309]0x25d1323dCbf60FCF331353bE917cd92CE99ce309
+Address : (https://explorer.celo.org/alfajores/address/0x25d1323dCbf60FCF331353bE917cd92CE99ce309)[0x25d1323dCbf60FCF331353bE917cd92CE99ce309]
 
 ## Auction SPU
-Address : [https://explorer.celo.org/alfajores/address/0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495]0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495
+Address : (https://explorer.celo.org/alfajores/address/0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495)[0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495]
 
 ## Variable Token Factory
-Address : [https://explorer.celo.org/alfajores/address/0x480622fA20A9e6b13bF2C515FEcE0237B50DF332]0x480622fA20A9e6b13bF2C515FEcE0237B50DF332
+Address : (https://explorer.celo.org/alfajores/address/0x480622fA20A9e6b13bF2C515FEcE0237B50DF332)[0x480622fA20A9e6b13bF2C515FEcE0237B50DF332]
 
 ## Variable Token Minter Example
-Address : [https://explorer.celo.org/alfajores/address/0xB91C37f99cc0b47BbAC836500D66F753862e2119]0xB91C37f99cc0b47BbAC836500D66F753862e2119
+Address : (https://explorer.celo.org/alfajores/address/0xB91C37f99cc0b47BbAC836500D66F753862e2119)[0xB91C37f99cc0b47BbAC836500D66F753862e2119]
 
 ## Payment Split Factory
-Address : [https://explorer.celo.org/alfajores/address/0x8c4AFEB1A24fA4914B310A196Eb7B31601804aB3]0x8c4AFEB1A24fA4914B310A196Eb7B31601804aB3
+Address : (https://explorer.celo.org/alfajores/address/0x8c4AFEB1A24fA4914B310A196Eb7B31601804aB3)[0x8c4AFEB1A24fA4914B310A196Eb7B31601804aB3]
 
 ## Payment Split 
-Address : [https://explorer.celo.org/alfajores/address/0x65C7Ce599aeBf902e29833d783F20461e0c9da99]0x65C7Ce599aeBf902e29833d783F20461e0c9da99
+Address : (https://explorer.celo.org/alfajores/address/0x65C7Ce599aeBf902e29833d783F20461e0c9da99)[0x65C7Ce599aeBf902e29833d783F20461e0c9da99]
