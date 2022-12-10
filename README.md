@@ -89,8 +89,8 @@ Address : 0x480622fA20A9e6b13bF2C515FEcE0237B50DF332
 ## Variable Token Minter Example
 Address : 0xB91C37f99cc0b47BbAC836500D66F753862e2119
 
-## Payment Split
+## Payment Split Factory
 Address : 0x8c4AFEB1A24fA4914B310A196Eb7B31601804aB3
 
-## Payment Split Factory
+## Payment Split 
 Address : 0x65C7Ce599aeBf902e29833d783F20461e0c9da99
