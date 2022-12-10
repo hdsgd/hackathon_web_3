@@ -25,3 +25,5 @@ adicionar comentários em todas as variaveis
 remover método getAddress
 
 pop / delete o array não diminui, só preencido com 0
+
+fazer teste com o owner para garantir que esat tudo ok, possivelmente importar do openzeppelin
