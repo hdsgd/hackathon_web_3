@@ -79,3 +79,12 @@ Address : 0x7e13A0Ac958022a18534c8F4d2aD939917e19bcA
 
 ## Document Vault
 Address : 0x25d1323dCbf60FCF331353bE917cd92CE99ce309
+
+## Auction SPU
+Address : 0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495
+
+## Varaible Token Factory
+Address : 0x480622fA20A9e6b13bF2C515FEcE0237B50DF332
+
+## Varaible Token Minter Example
+Address : 0x0e7B5EeaC601d73394fbf39EF00fF8F3FBa12495
