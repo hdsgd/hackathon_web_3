@@ -1,4 +1,4 @@
-# SPU Hackathon Web3 INSIGNIA !
+# SPU Hackathon Web3 INSIGNIA !2
 
 This project, developed by INSIGNIA, is our submission to the "Tokenização do Patrimônio da União" Hackathon Web 3.0 an event organized in partnership between the Secretaria de Coordenação e Governança do Patrimônio da União (SPU), Ministério da Economia, Serpro, and Escola Nacional de Administração Pública (Enap). This documentation only covers the smart contracts and use case UML; the legal, administration and financial documents are shown at the team presentation.
 The methods used here are the same if we wanted to certify these contracts by a third party, so if in the future this is necessary we would be ready for it with minimal effort.
